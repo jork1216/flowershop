@@ -1,0 +1,68 @@
+.navbar-wrapper {
+  width: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  background-color: #ffffff;
+}
+
+/* Flex: 1 on the left, center, and right sections ensures 
+  the logo stays perfectly centered in the middle of the screen.
+*/
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  flex: 1; 
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666; /* Slightly grayed out text */
+  font-size: 16px;
+}
+
+.nav-link.active {
+  color: #000; /* Black text for the active page */
+}
+
+.nav-brand {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-family: "Times New Roman", Times, serif;
+  color: #921313;
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+.logo-bouquet {
+  font-size: 28px;
+}
+
+.logo-shop {
+  font-size: 28px;
+  margin-left: 32px; /* Indents the word "Shop" to the right */
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  flex: 1;
+}
+
+.nav-icons svg {
+  cursor: pointer;
+  color: #000;
+}
