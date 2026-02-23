@@ -1,0 +1,123 @@
+/* Base Section Styling */
+.custom-section {
+    background-color: #9b0b16; /* Deep red background */
+    color: #ffffff;
+    padding: 60px 5%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+/* Layout */
+.custom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.custom-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+/* Typography & Decorations */
+.custom-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.custom-label::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: #ffffff;
+    margin-top: 8px;
+}
+
+.custom-title {
+    font-family: 'Playfair Display', Georgia, serif; /* Matches the thick serif in the design */
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 25px 0;
+}
+
+.custom-description {
+    font-size: .8rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* Button Group */
+.custom-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px; /* Pill shape */
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-solid {
+    background-color: #ffffff;
+    color: #9b0b16;
+    border: 1px solid #ffffff;
+}
+
+.btn-solid:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #9b0b16;
+}
+
+/* Image Styling */
+.custom-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.custom-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Responsive Fallback */
+@media (max-width: 850px) {
+    .custom-container {
+        flex-direction: column;
+    }
+    
+    .custom-image-wrapper {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .custom-title {
+        font-size: 2.8rem;
+    }
+}

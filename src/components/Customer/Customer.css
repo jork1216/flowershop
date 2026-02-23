@@ -1,0 +1,111 @@
+/* Main container */
+.customer-section {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+/* Header text */
+.header h2 {
+  color: #8b2323; /* Dark red matching the design */
+  font-family: 'Georgia', serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Rating section under header */
+.rating-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.rating-summary .stars {
+  color: #a01010;
+  letter-spacing: 2px;
+}
+
+.rating-summary .score {
+  color: #333;
+}
+
+.rating-summary .verified {
+  color: #3b8b88; /* Teal color */
+  font-weight: bold;
+}
+
+/* Flexbox container holding the cards */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Standard styling for the side cards */
+.card {
+  width: 160px;
+  height: 260px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Allows positioning the overlay at the bottom */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling specifically for the larger center card */
+.card.active {
+  width: 240px;
+  height: 380px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 2; /* Keeps it above the side cards */
+}
+
+/* Gradient block at the bottom of each image */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px 10px 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  box-sizing: border-box;
+}
+
+.card-stars {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.card-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Arrow buttons at the bottom */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 10px;
+}
+
+.arrow-btn:hover {
+  color: #000;
+}
