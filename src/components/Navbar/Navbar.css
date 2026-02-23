@@ -9,6 +9,7 @@
   align-items: center;
   padding: 16px 48px;
   background-color: #ffffff;
+  border-bottom: 1px solid #ababab;
 }
 
 /* Flex: 1 on the left, center, and right sections ensures 
@@ -23,8 +24,8 @@
 
 .nav-link {
   text-decoration: none;
-  color: #666; /* Slightly grayed out text */
-  font-size: 16px;
+  color: #525252; /* Slightly grayed out text */
+  font-size: 1rem;
 }
 
 .nav-link.active {
@@ -46,13 +47,15 @@
   line-height: 0.8;
 }
 
-.logo-bouquet {
-  font-size: 28px;
+.logo-flower {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .logo-shop {
-  font-size: 28px;
-  margin-left: 32px; /* Indents the word "Shop" to the right */
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 28px; /* Indents the word "Shop" to the right */
 }
 
 .nav-icons {
@@ -65,4 +68,52 @@
 .nav-icons svg {
   cursor: pointer;
   color: #000;
+}
+
+/* --- TABLET / IPAD LAYOUT --- */
+/* For screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 14px 32px; /* Reduce padding for smaller screens */
+  }
+
+  .nav-links {
+    gap: 20px; /* Slightly reduce gap between links */
+  }
+
+  .logo-text {
+    font-size: 1.3rem; /* Scale down text if needed */
+  }
+
+  .nav-icons {
+    gap: 20px; /* Slightly reduce icon spacing */
+  }
+}
+
+/* --- MOBILE LAYOUT --- */
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 24px; /* Further reduce padding for mobile */
+  }
+
+  .nav-links {
+    gap: 16px; /* Reduce gap between links for mobile */
+  }
+
+  .logo-text {
+    font-size: 1.1rem; /* Scale down text for mobile */
+  }
+
+  .nav-icons {
+    gap: 16px; /* Reduce icon spacing for mobile */
+  }
+}
+
+/* --- SMALL MOBILE LAYOUT --- */
+
+@media (max-width: 520px) {
+   .nav-link {
+    font-size: .9rem;
+  }
 }

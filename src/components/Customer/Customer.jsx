@@ -4,11 +4,11 @@ import './Customer.css';
 function Customer() {
   // A simple array of customer data to keep the code clean
 const reviews = [
-    { id: 1, name: 'Mikoy Sampiano', img: '/images/mikoy.jpg', isCenter: false },
-    { id: 2, name: 'Nestor Ptz', img: '/images/nestor.jpg', isCenter: false },
-    { id: 3, name: 'Niño Jovan Reyes', img: '/images/nino.jpg', isCenter: true },
-    { id: 4, name: 'John Smith', img: '/images/john.jpg', isCenter: false },
-    { id: 5, name: 'Miyaka Reyes', img: '/images/miyaka.jpg', isCenter: false },
+    { id: 1, name: 'Mikey Sam', img: '/images/mikoy.jpg', isCenter: false },
+    { id: 2, name: 'Nessy Ptz', img: '/images/nestor.jpg', isCenter: false },
+    { id: 3, name: 'Niño John Reyes', img: '/images/nino.jpg', isCenter: true },
+    { id: 4, name: 'Jake Smith', img: '/images/john.jpg', isCenter: false },
+    { id: 5, name: 'Mimi Reyes', img: '/images/miyaka.jpg', isCenter: false },
   ];
 
   return (
