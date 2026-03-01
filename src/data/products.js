@@ -1,10 +1,10 @@
 // src/data/products.js
-import wine     from "../assets/wine.jpg";
-import blush    from "../assets/blush.jpg";
-import flamingo from "../assets/flamingo.jpg";
-import kiss     from "../assets/kiss.jpg";
-import cherry   from "../assets/cherry.jpg";
-import dream    from "../assets/dream.jpg";
+import wine     from "../assets/products/wine.jpg";
+import blush    from "../assets/products/blush.jpg";
+import flamingo from "../assets/products/flamingo.jpg";
+import kiss     from "../assets/products/kiss.jpg";
+import cherry   from "../assets/products/cherry.jpg";
+import dream    from "../assets/products/dream.jpg";
 
 export const bestSellerProducts = [
   { id: 1, name: "Wine",     price: "P890.00",   oldPrice: "P990.00",   image: wine     },

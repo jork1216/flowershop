@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Custom.css";
-import bouquetImage from "../../assets/kiss.jpg";
+import bouquetImage from "../../assets/products/kiss.jpg";
 
 function Custom() {
     return (

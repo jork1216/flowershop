@@ -1,4 +1,4 @@
-import roses from '../../assets/roses.jpg';
+import roses from '../../assets/products/roses.jpg';
 
 import { Link } from 'react-router-dom';
 import './Header.css';
