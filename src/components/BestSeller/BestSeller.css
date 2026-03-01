@@ -3,7 +3,7 @@
   font-family: Arial, sans-serif;
   max-width: 1100px;
   margin: 40px auto; /* Centers the section on the page */
-  padding: 0 20px;
+  padding: 0 100px;
 }
 
 /* Flexbox puts the title and button on the same line */
@@ -14,21 +14,23 @@
   margin-bottom: 30px;
 }
 
-.title {
+.bs-title {
+  font-family: Arial, sans-serif !important;
   color: #8C1C13; /* Dark red color */
-  font-size: 32px;
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 2rem !important;
 }
 
 .see-all-btn {
-  padding: 10px 20px;
-  border: 1px solid #000;
+  padding: 10px 30px;
+  border: 2px solid #000;
   background-color: transparent;
-  border-radius: 25px; /* Makes the button round */
+  border-radius: 14px; /* Makes the button round */
   cursor: pointer;
-  font-size: 12px;
+  font-size: 1rem;
   letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
 /* Flexbox lines up the product cards horizontally */
@@ -48,7 +50,8 @@
 .image-box {
   position: relative; /* Allows positioning badges inside it */
   background-color: #EFEFEF;
-  height: 200px;
+  height: 150px;
+  width: 150px;
   border-radius: 12px;
   margin-bottom: 15px;
   display: flex;
@@ -62,9 +65,16 @@
   right: 10px;
   background-color: #9C0000;
   color: white;
-  padding: 4px 14px;
-  border-radius: 20px;
+  padding: 8px 15px;
+  border-radius: 18px;
   font-size: 14px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .add-btn {

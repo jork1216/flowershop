@@ -8,7 +8,9 @@ function Header() {
     <header className="header-container">
       {/* Left side: Text Content */}
       <div className="header-content">
-        <h1 className="header-title">Fresh flower that lasts!</h1>
+        <h1 className="header-title">
+          Fresh flower <br />that lasts!
+        </h1>
         <p className="header-subtitle">Valentine's collections are out now</p>
         
         <div className="header-buttons">

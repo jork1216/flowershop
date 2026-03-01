@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 80px;
+  padding: 10px 82px;
   background-color: #ffffff;
   border-bottom: 1px solid #ababab;
 }
@@ -25,7 +25,7 @@
 .nav-link {
   text-decoration: none;
   color: #525252; /* Slightly grayed out text */
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .nav-link.active {

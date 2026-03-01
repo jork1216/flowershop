@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Custom.css";
-import bouquetImage from "../../assets/roses.jpg";
+import bouquetImage from "../../assets/kiss.jpg";
 
 function Custom() {
     return (
@@ -10,7 +10,7 @@ function Custom() {
                     <span className="custom-label">CUSTOMIZED BOUQUET</span>
                     
                     <h1 className="custom-title">
-                        DESIGN YOUR OWN<br />BOUQUET
+                        Design YOUR <br />Own Bouquet!
                     </h1>
                     
                     <p className="custom-description">
@@ -20,8 +20,8 @@ function Custom() {
                     </p>
 
                     <div className="custom-actions">
-                        <Link to="/request" className="btn btn-solid">REQUEST NOW</Link>
-                        <Link to="/learn-more" className="btn btn-outline">LEARN MORE</Link>
+                        <Link to="/request" className="cbtn cbtn-solid">REQUEST NOW</Link>
+                        <Link to="/learn-more" className="cbtn cbtn-outline">LEARN MORE</Link>
                     </div>
                 </div>
 

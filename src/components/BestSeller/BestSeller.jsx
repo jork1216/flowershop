@@ -5,16 +5,21 @@ function BestSeller() {
   return (
     <div className="best-seller-section">
       <div className="header">
-        <h2 className="title">Best Seller</h2>
+        <h2 className="bs-title">Best Seller</h2>
         <button className="see-all-btn">SEE ALL COLLECTIONS</button>
       </div>
 
       <div className="product-list">
+
         {bestSellerProducts.map((product) => (
           <div key={product.id} className="product-card">
             <div className="image-box">
               <span className="sale-badge">Sale</span>
-              <div className="image-placeholder"></div>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-image"
+              />
             </div>
             <h3 className="product-name">{product.name}</h3>
             <div className="price-row">
@@ -23,6 +28,7 @@ function BestSeller() {
             </div>
           </div>
         ))}
+
       </div>
     </div>
   );
