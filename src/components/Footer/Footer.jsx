@@ -8,7 +8,7 @@ function Footer() {
       
       {/* 1. Top Red Banner Section */}
       <div className="footer-top-banner">
-        <h2>Flowers that last a lifetime.</h2>
+        <h2>Fresh flowers that last a lifetime!</h2>
         <p>Beautifully preserved. Artistically arranged. Delivered to your door.</p>
         <Link to="/shop" className="order-btn">ORDER NOW</Link>
       </div>
@@ -30,7 +30,7 @@ function Footer() {
           {/* Right Column: Logo and Socials */}
           <div className="footer-brand">
             <div className="brand-logo">
-              Bouquet<br />Shop
+              Flower<br />Shop
             </div>
             <div className="social-icons">
               {/* Facebook Icon */}
@@ -45,7 +45,7 @@ function Footer() {
 
         {/* Bottom Legal Links Row */}
         <div className="footer-legal">
-          <p className="copyright">© 2026 Bouquet Shop PH</p>
+          <p className="copyright">© 2026 Flower Shop PH</p>
           <div className="legal-links">
             <Link to="/refund">Refund policy</Link>
             <Link to="/privacy">Private policy</Link>
