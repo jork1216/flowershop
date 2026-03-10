@@ -1,5 +1,5 @@
 import "./BestSeller.css";
-import { bestSellerProducts } from "../../data/products"; // adjust path as needed
+import { bestSellerProducts } from "../../../data/products"; // adjust path as needed
 
 function BestSeller() {
   return (

@@ -1,9 +1,9 @@
-import customer1 from '../../assets/customers/customer1.jpg';
-import customer2 from '../../assets/customers/customer2.jpg';
-import customer3 from '../../assets/customers/customer3.jpg';
-import customer4 from '../../assets/customers/customer4.jpg';
-import customer5 from '../../assets/customers/customer5.jpg';
-import customer6 from '../../assets/customers/customer6.jpg';
+import customer1 from '../../../assets/customers/customer1.jpg';
+import customer2 from '../../../assets/customers/customer2.jpg';
+import customer3 from '../../../assets/customers/customer3.jpg';
+import customer4 from '../../../assets/customers/customer4.jpg';
+import customer5 from '../../../assets/customers/customer5.jpg';
+import customer6 from '../../../assets/customers/customer6.jpg';
 import './Customer.css';
 import { useState } from 'react';
 

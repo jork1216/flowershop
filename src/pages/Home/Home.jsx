@@ -1,8 +1,8 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Header from "../../components/Header/Header";
-import BestSeller from "../../components/BestSeller/BestSeller";
-import Custom from "../../components/Custom/Custom";
-import Customer from "../../components/Customer/Customer.jsx";
+import BestSeller from "../../components/Home/BestSeller/BestSeller";
+import Custom from "../../components/Home/Custom/Custom";
+import Customer from "../../components/Home/Customer/Customer.jsx";
 import Footer from "../../components/Footer/Footer";
 
 function Home() {
