@@ -1,5 +1,5 @@
 import Navbar from "../../components/Navbar/Navbar";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Home/Header/Header";
 import BestSeller from "../../components/Home/BestSeller/BestSeller";
 import Custom from "../../components/Home/Custom/Custom";
 import Customer from "../../components/Home/Customer/Customer.jsx";
