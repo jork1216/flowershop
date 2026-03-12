@@ -18,7 +18,7 @@
   font-family: serif; /* Matches the formal font style */
   margin-bottom: 10px;
   font-weight: 900; /* Makes the font thick */
-  text-shadow: 1.2px 0 0 #a30000
+  text-shadow: 1.2px 0 0 #a30000;
 }
 
 .header-subtitle {
