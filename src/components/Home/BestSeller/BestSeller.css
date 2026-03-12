@@ -3,7 +3,6 @@
   font-family: Arial, sans-serif;
   max-width: 1100px;
   margin: 40px auto; /* Centers the section on the page */
-  padding: 0 100px;
 }
 
 /* Flexbox puts the title and button on the same line */

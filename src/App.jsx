@@ -4,6 +4,7 @@ import OurStory from "./pages/OurStory/OurStory.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import { allProducts } from './data/products';
+import LogIn from "./pages/LogIn/LogIn.jsx";
 
 import './App.css'
 
@@ -19,6 +20,8 @@ function App() {
         
         {/* And pass it here */}
         <Route path="/product/:id" element={<ProductDetail allProducts={allProducts} />} />
+
+        <Route path="/login" element={<LogIn />} />
       </Routes>
     </BrowserRouter>
   )
