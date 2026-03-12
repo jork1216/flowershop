@@ -62,6 +62,7 @@
 /* Product Card */
 .shop-product-card {
   cursor: pointer;
+  text-decoration: none;
 }
 
 .shop-image-box {

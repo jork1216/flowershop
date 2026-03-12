@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home/Home.jsx'
 import OurStory from "./pages/OurStory/OurStory.jsx";
 import Shop from "./pages/Shop/Shop.jsx";
-import ProductDetail from "./pages/ProductDetail/ProfuctDetail.jsx";
+import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import { allProducts } from './data/products';
 
 import './App.css'

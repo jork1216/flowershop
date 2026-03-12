@@ -50,7 +50,7 @@ function Shop() {
                   className="shop-product-image"
                 />
               </div>
-              <h3 className="shop-product-name">{product.name}</h3>
+              <span className="shop-product-name">{product.name}</span>
               <div className="shop-price-row">
                 <span className="shop-current-price">{product.price}</span>
                 <span className="shop-old-price">{product.oldPrice}</span>
