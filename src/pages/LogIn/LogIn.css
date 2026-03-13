@@ -159,3 +159,14 @@ body {
 .footer__link:hover {
   opacity: 1;
 }
+
+.back-link-btn {
+  background: none;
+  border: none;
+  color: var(--crimson);
+  cursor: pointer;
+  font-size: 13.5px;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+  margin-top: 16px;
+}
