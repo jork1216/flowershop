@@ -8,7 +8,7 @@ import {
 
 const actionCodeSettings = {
   // This is the URL Firebase redirects back to after the user clicks the link
-  url: "https://flowershop-woad.vercel.app", // change to your production URL when deploying
+  url: "https://flowershop-woad.vercel.app/login", // change to your production URL when deploying
   handleCodeInApp: true,
 };
 
