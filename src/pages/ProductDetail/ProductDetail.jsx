@@ -32,6 +32,17 @@ const ProductDetail = ({ allProducts }) => {
   const { addItem } = useCart();
 
   // -----------------------------------------------------------
+  // Quantity handlers with min/max clamping
+  // -----------------------------------------------------------
+  const incrementQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decrementQuantity = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
+  };
+
+  // -----------------------------------------------------------
   // handleAddToCart — runs when the button is clicked
   // -----------------------------------------------------------
   const handleAddToCart = () => {
@@ -83,19 +94,29 @@ const ProductDetail = ({ allProducts }) => {
             {/* ---- Quantity input + Add to Cart button ---- */}
             <div className="product-actions">
 
-              {/*
-                CHANGED: was defaultValue="1" (uncontrolled)
-                Now uses value={quantity} + onChange (controlled).
-                "Controlled" means React is in charge of the value,
-                not the browser — so we always know what it is.
-              */}
-              <input
-                type="number"
-                min="1"
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
-                className="qty-input"
-              />
+              {/* Quantity selector with +/- buttons */}
+              <div className="quantity-selector">
+                <button
+                  className="qty-btn qty-btn-minus"
+                  onClick={decrementQuantity}
+                  aria-label="Decrease quantity"
+                >
+                  −
+                </button>
+                <input
+                  type="number"
+                  value={quantity}
+                  readOnly
+                  className="qty-input"
+                />
+                <button
+                  className="qty-btn qty-btn-plus"
+                  onClick={incrementQuantity}
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+              </div>
 
               {/*
                 CHANGED: onClick now calls handleAddToCart()

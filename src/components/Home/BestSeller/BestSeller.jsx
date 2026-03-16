@@ -1,4 +1,5 @@
 import "./BestSeller.css";
+import { Link } from "react-router-dom";
 import { bestSellerProducts } from "../../../data/products"; // adjust path as needed
 
 function BestSeller() {
@@ -12,21 +13,23 @@ function BestSeller() {
       <div className="product-list">
 
         {bestSellerProducts.map((product) => (
-          <div key={product.id} className="product-card">
-            <div className="image-box">
-              <span className="sale-badge">Sale</span>
-              <img
-                src={product.image}
-                alt={product.name}
-                className="product-image"
-              />
+          <Link key={product.id} to={`/product/${product.id}`} className="product-card-link">
+            <div className="product-card">
+              <div className="image-box">
+                <span className="sale-badge">Sale</span>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="product-image"
+                />
+              </div>
+              <h3 className="product-name">{product.name}</h3>
+              <div className="price-row">
+                <span className="current-price">{product.price}</span>
+                <span className="old-price">{product.oldPrice}</span>
+              </div>
             </div>
-            <h3 className="product-name">{product.name}</h3>
-            <div className="price-row">
-              <span className="current-price">{product.price}</span>
-              <span className="old-price">{product.oldPrice}</span>
-            </div>
-          </div>
+          </Link>
         ))}
 
       </div>

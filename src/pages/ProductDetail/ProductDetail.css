@@ -135,21 +135,54 @@
   flex-wrap: wrap;
 }
 
-.qty-input {
-  width: 70px;
-  padding: 12px 14px;
+/* Quantity Selector Container */
+.quantity-selector {
+  display: flex;
+  align-items: center;
   border: 1.5px solid #ddd;
   border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Generic button styling for +/- */
+.qty-btn {
+  width: 40px;
+  height: 45px;
+  border: none;
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.qty-btn:hover {
+  background-color: #efefef;
+}
+
+.qty-btn:active {
+  background-color: #ddd;
+}
+
+/* Read-only quantity input */
+.qty-input {
+  width: 50px;
+  padding: 12px 0;
+  border: none;
   font-size: 1rem;
   font-family: Arial, sans-serif;
   text-align: center;
   color: #222;
-  transition: border-color 0.2s ease;
+  font-weight: 600;
+  background-color: #fff;
   outline: none;
-}
-
-.qty-input:focus {
-  border-color: #8C1C13;
+  cursor: default;
 }
 
 .add-to-cart-btn {
