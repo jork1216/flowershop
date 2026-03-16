@@ -253,3 +253,15 @@
     text-align: left;
   }
 }
+
+/* When the button has the "added" class (briefly after clicking),
+   turn it green so the user knows it worked */
+.add-to-cart-btn.added {
+  background-color: #2e7d32; /* green */
+}
+ 
+/* Smooth color transition so it doesn't just snap from red to green */
+.add-to-cart-btn {
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+ 

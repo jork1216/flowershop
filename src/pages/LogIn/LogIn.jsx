@@ -25,23 +25,20 @@ export default function LogIn() {
       });
   }, []);
 
-const handleContinue = async () => {
-  if (!email.trim()) return;
-  setError("");
-  try {
-    await sendLoginLink(email);
-    setStep("sent");
-  } catch (err) {
-    console.log("Full error:", JSON.stringify(err));
-    console.log("Error code:", err.code);
-    console.log("Error message:", err.message);
-    setError("Failed to send link. Please check the email and try again.");
-  }
-};
+  const handleContinue = async () => {
+    if (!email.trim()) return;
+    setError("");
+    try {
+      await sendLoginLink(email);
+      setStep("sent");
+    } catch (err) {
+      setError("Failed to send link. Please check the email and try again.");
+    }
+  };
 
   return (
     <div>
-      <Navbar />
+      
       <div className="login-page">
         <div className="login-card">
 
@@ -107,7 +104,7 @@ const handleContinue = async () => {
           <a href="#" className="footer__link">Terms of service</a>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 }

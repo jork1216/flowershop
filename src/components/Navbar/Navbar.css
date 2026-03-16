@@ -188,3 +188,47 @@
     font-size: .9rem;
   }
 }
+
+/* The wrapper div around the cart icon.
+   position: relative is needed so the badge can be positioned
+   relative to THIS element, not the whole page. */
+.cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #000; /* Make the SVG inherit this color */
+  text-decoration: none;
+}
+ 
+/* The little red bubble that shows the item count.
+   position: absolute takes it OUT of normal flow so it
+   floats on top of the cart icon. */
+.cart-badge {
+  position: absolute;
+  top: -8px;      /* Move it up above the icon */
+  right: -10px;   /* Move it right past the edge of the icon */
+ 
+  background-color: #921313;  /* Brand red */
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+ 
+  /* Make it a small circle */
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+ 
+  /* Center the number inside the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  /* Tiny pop-in animation when it first appears */
+  animation: badgePop 0.2s ease;
+}
+ 
+@keyframes badgePop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
