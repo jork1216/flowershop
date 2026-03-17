@@ -27,19 +27,19 @@ export default function Checkout() {
   // If not logged in → go to /login
   // If cart is empty → go to /cart
   // -----------------------------------------------------------
-  useEffect(() => {
+    useEffect(() => {
+    // Skip redirects while auth is still loading
+    if (user === undefined) return;
+    
+    // Auth guard takes priority
     if (user === null) {
-      // user === null means auth has resolved and there's no user
-      // user === undefined means auth is still loading — wait for it
-      navigate("/login");
+        navigate("/login");
     }
-  }, [user, navigate]);
-
-  useEffect(() => {
-    if (items.length === 0) {
-      navigate("/cart");
+    // Cart guard only runs if user is logged in
+    else if (items.length === 0) {
+        navigate("/cart");
     }
-  }, [items, navigate]);
+    }, [user, items, navigate]);
 
   // -----------------------------------------------------------
   // FORM STATE
@@ -179,11 +179,11 @@ export default function Checkout() {
       // Save to Firestore — addDoc gives us back the document reference
       const docRef = await addDoc(collection(db, "orders"), order);
 
-      // Clear the cart
-      clearCart();
-
       // Redirect to the thank you page, passing the order ID in the URL
       navigate(`/order-success?orderId=${docRef.id}`);
+
+      // Clear the cart
+      clearCart();
 
     } catch (error) {
       console.error("Failed to place order:", error);
