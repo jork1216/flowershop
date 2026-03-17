@@ -1,170 +1,122 @@
-
-
 import { createContext, useContext, useReducer } from "react";
 
+// -----------------------------------------------------------
+// STEP 1: The initial state
+// Load from localStorage if it exists, otherwise start empty
+// -----------------------------------------------------------
+const loadCart = () => {
+  try {
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : { items: [] };
+  } catch {
+    return { items: [] };
+  }
+};
 
-const CartContext = createContext(null);
-
-
+// -----------------------------------------------------------
+// STEP 2: The reducer — unchanged
+// -----------------------------------------------------------
 function cartReducer(state, action) {
-  switch (action.type) {
+  let newState;
 
-    // -------------------------------------------------------
-    // ADD_ITEM: User clicked "Add to Cart"
-    // -------------------------------------------------------
+  switch (action.type) {
     case "ADD_ITEM": {
       const { product, quantity } = action.payload;
+      const existing = state.items.find((item) => item.id === product.id);
 
-      // Check if this product is already in the cart
-      const existingItem = state.items.find((item) => item.id === product.id);
-
-      if (existingItem) {
-        // Product is already in cart → just increase its quantity
-        return {
-          ...state, // keep everything else the same
+      if (existing) {
+        newState = {
+          ...state,
           items: state.items.map((item) =>
             item.id === product.id
-              ? { ...item, quantity: item.quantity + quantity } // update this one
-              : item // leave all others unchanged
+              ? { ...item, quantity: item.quantity + quantity }
+              : item
           ),
         };
       } else {
-        // Product is NOT in cart yet → add it as a new entry
-        return {
+        newState = {
           ...state,
           items: [...state.items, { ...product, quantity }],
-          // [...state.items, newItem] means: copy all existing items + add the new one
         };
       }
+      break;
     }
 
-    // -------------------------------------------------------
-    // REMOVE_ITEM: User clicked the remove/delete button
-    // -------------------------------------------------------
     case "REMOVE_ITEM": {
-      return {
+      newState = {
         ...state,
-        // Keep every item EXCEPT the one with this id
         items: state.items.filter((item) => item.id !== action.payload.id),
       };
+      break;
     }
 
-    // -------------------------------------------------------
-    // UPDATE_QUANTITY: User changed the qty number in cart
-    // -------------------------------------------------------
     case "UPDATE_QUANTITY": {
       const { id, quantity } = action.payload;
-
-      // If they set quantity to 0 or less, just remove the item
       if (quantity <= 0) {
-        return {
+        newState = {
           ...state,
           items: state.items.filter((item) => item.id !== id),
         };
+      } else {
+        newState = {
+          ...state,
+          items: state.items.map((item) =>
+            item.id === id ? { ...item, quantity } : item
+          ),
+        };
       }
-
-      return {
-        ...state,
-        items: state.items.map((item) =>
-          item.id === id ? { ...item, quantity } : item
-        ),
-      };
+      break;
     }
 
-    // -------------------------------------------------------
-    // CLEAR_CART: Empty the whole cart (useful after checkout)
-    // -------------------------------------------------------
     case "CLEAR_CART": {
-      return { ...state, items: [] };
+      newState = { ...state, items: [] };
+      break;
     }
 
-    // If an unknown action type is dispatched, return state unchanged
     default:
       return state;
   }
+
+  // -----------------------------------------------------------
+  // NEW: Save to localStorage after every state change
+  // -----------------------------------------------------------
+  localStorage.setItem("cart", JSON.stringify(newState));
+  return newState;
 }
 
 // -----------------------------------------------------------
-// STEP 3: The CartProvider Component
-//
-// This wraps around your whole app (in main.jsx) so that
-// every child component can access the cart.
+// STEP 3: The CartProvider — load from localStorage on startup
 // -----------------------------------------------------------
 export function CartProvider({ children }) {
-  // useReducer(reducerFunction, initialState)
-  // state   = the current cart data
-  // dispatch = the function you call to trigger changes
-  const [state, dispatch] = useReducer(cartReducer, {
-    items: [], // The cart starts empty
-  });
+  const [state, dispatch] = useReducer(cartReducer, loadCart()); // UPDATED
 
-  // -----------------------------------------------------------
-  // These are the "action creators" — friendly functions that
-  // components can call instead of writing dispatch({...}) manually.
-  // -----------------------------------------------------------
-
-  // Add a product to the cart (quantity defaults to 1 if not specified)
-  const addItem = (product, quantity = 1) => {
+  const addItem = (product, quantity = 1) =>
     dispatch({ type: "ADD_ITEM", payload: { product, quantity } });
-  };
 
-  // Remove a product from the cart by its id
-  const removeItem = (id) => {
+  const removeItem = (id) =>
     dispatch({ type: "REMOVE_ITEM", payload: { id } });
-  };
 
-  // Change the quantity of a specific item
-  const updateQuantity = (id, quantity) => {
+  const updateQuantity = (id, quantity) =>
     dispatch({ type: "UPDATE_QUANTITY", payload: { id, quantity } });
-  };
 
-  // Empty the whole cart
-  const clearCart = () => {
+  const clearCart = () =>
     dispatch({ type: "CLEAR_CART" });
-  };
 
-  // -----------------------------------------------------------
-  // Derived values — calculated from state, not stored separately.
-  // These update automatically whenever state.items changes.
-  // -----------------------------------------------------------
-
-  // Total number of items (e.g. 3 wines + 2 roses = 5)
   const totalItems = state.items.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Total price as a number — we strip "P" and commas first
-  // e.g. "P1,890.00" → 1890.00
   const totalPrice = state.items.reduce((sum, item) => {
     const price = parseFloat(item.price.replace("P", "").replace(",", ""));
     return sum + price * item.quantity;
   }, 0);
 
-  // -----------------------------------------------------------
-  // STEP 4: Provide all the cart data and functions to children.
-  // Any component that calls useCart() will get this object.
-  // -----------------------------------------------------------
   return (
     <CartContext.Provider
-      value={{
-        items: state.items,
-        totalItems,
-        totalPrice,
-        addItem,
-        removeItem,
-        updateQuantity,
-        clearCart,
-      }}
+      value={{ items: state.items, totalItems, totalPrice, addItem, removeItem, updateQuantity, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
 }
 
-// -----------------------------------------------------------
-// STEP 5: Custom hook — useCart()
-//
-// Instead of writing useContext(CartContext) everywhere,
-// components just call useCart() for a cleaner import.
-// -----------------------------------------------------------
-export function useCart() {
-  return useContext(CartContext);
-}
+const CartContext = createContext(null);
+export const useCart = () => useContext(CartContext);
