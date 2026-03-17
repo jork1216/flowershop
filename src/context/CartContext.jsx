@@ -1,37 +1,11 @@
-// ============================================================
-// src/context/CartContext.jsx
-// ------------------------------------------------------------
-// This file creates the "Cart Brain" for the whole app.
-//
-// Think of Context like a shared whiteboard that ANY component
-// in your app can read from or write to — without having to
-// pass props through every parent component manually.
-//
-// useReducer is like a traffic controller for state changes.
-// Instead of calling setState directly, you dispatch an
-// "action" (like { type: "ADD_ITEM" }) and the reducer
-// function decides how the state should change.
-// ============================================================
+
 
 import { createContext, useContext, useReducer } from "react";
 
-// -----------------------------------------------------------
-// STEP 1: Create the Context object.
-// This is like creating the whiteboard. It starts empty (null).
-// -----------------------------------------------------------
+
 const CartContext = createContext(null);
 
-// -----------------------------------------------------------
-// STEP 2: The Reducer Function
-//
-// A reducer takes two arguments:
-//   - state: the current cart data
-//   - action: an object describing what happened
-//             (e.g. { type: "ADD_ITEM", payload: product })
-//
-// It must return the NEW state. It never changes the old
-// state directly — it always returns a fresh copy.
-// -----------------------------------------------------------
+
 function cartReducer(state, action) {
   switch (action.type) {
 

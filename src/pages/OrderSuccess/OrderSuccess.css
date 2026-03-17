@@ -1,0 +1,227 @@
+/* ============================================================
+   src/pages/OrderSuccess/OrderSuccess.css
+   ============================================================ */
+
+/* ---- PAGE WRAPPER ---- */
+
+.order-success-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ---- LOADING & ERROR STATES ---- */
+
+.order-success-loading,
+.order-success-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: 16px;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.order-success-error h2 {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  color: #111;
+  margin: 0;
+}
+
+.order-success-error p {
+  color: #666;
+  margin: 0;
+}
+
+/* ---- SUCCESS HEADER ---- */
+
+.success-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+
+.success-title {
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px 0;
+}
+
+.success-subtitle {
+  font-size: 1.05rem;
+  color: #555;
+  margin: 0 0 16px 0;
+}
+
+.order-id-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;
+}
+
+.order-id {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #8C1C13;
+  font-weight: 600;
+}
+
+/* ---- TWO-COLUMN LAYOUT ---- */
+
+.success-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 640px) {
+  .success-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- SHARED BOX STYLE ---- */
+
+.success-items-box,
+.success-details-box {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.success-box-title {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 20px 0;
+}
+
+/* ---- ITEMS LIST ---- */
+
+.success-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.success-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-item-info {
+  flex: 1;
+}
+
+.success-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 2px 0;
+}
+
+.success-item-qty {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.success-item-subtotal {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ---- TOTALS ---- */
+
+.success-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 16px 0;
+}
+
+.success-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.success-payment-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+.cod-tag {
+  font-weight: 600;
+  color: #5a4a2a;
+}
+
+/* ---- DELIVERY DETAILS ---- */
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #111;
+}
+
+/* ---- BACK TO SHOP BUTTON ---- */
+
+.success-actions {
+  text-align: center;
+}
+
+.back-to-shop-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #8C1C13;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.back-to-shop-btn:hover {
+  background-color: #6e1510;
+}

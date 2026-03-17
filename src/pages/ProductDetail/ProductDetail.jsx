@@ -1,13 +1,3 @@
-// ============================================================
-// src/pages/ProductDetail/ProductDetail.jsx
-// ------------------------------------------------------------
-// CHANGES FROM ORIGINAL:
-//  1. Added useState to track the quantity the user picks
-//  2. Imported useCart so we can call addItem()
-//  3. Wired the "Add to Cart" button to actually add the item
-//  4. Added a brief "Added!" feedback so the user knows it worked
-// ============================================================
-
 import { useState } from "react";            
 import { useParams, Link } from 'react-router-dom';
 import "./ProductDetail.css";
@@ -19,21 +9,12 @@ const ProductDetail = ({ allProducts }) => {
   const { id } = useParams();
   const product = allProducts.find((p) => String(p.id) === id);
 
-  // -----------------------------------------------------------
-  // NEW STATE
-  // quantity: how many the user wants to add (starts at 1)
-  // added:    briefly true after clicking "Add to Cart" to show
-  //           a "Added!" confirmation message
-  // -----------------------------------------------------------
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
-  // Get the addItem function from our CartContext
   const { addItem } = useCart();
 
-  // -----------------------------------------------------------
-  // Quantity handlers with min/max clamping
-  // -----------------------------------------------------------
+  // Clamps quantity to minimum of 1
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -42,14 +23,10 @@ const ProductDetail = ({ allProducts }) => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
 
-  // -----------------------------------------------------------
-  // handleAddToCart — runs when the button is clicked
-  // -----------------------------------------------------------
   const handleAddToCart = () => {
-    // Pass the product object and the selected quantity
     addItem(product, quantity);
 
-    // Show the "Added!" feedback for 1.5 seconds, then reset
+    // Show "Added! ✓" feedback for 1.5 seconds
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
@@ -72,13 +49,11 @@ const ProductDetail = ({ allProducts }) => {
         <Link className="back-link" to="/">← Back to products</Link>
 
         <div className="product-detail-content">
-          {/* ---- Left side: Product image ---- */}
           <div className="product-detail-image">
             {product.soldOut && <span className="badge badge-soldout">Sold out</span>}
             <img src={product.image} alt={product.name} />
           </div>
 
-          {/* ---- Right side: Product info ---- */}
           <div className="product-detail-info">
             <h1 className="product-name">{product.name}</h1>
 
@@ -91,10 +66,8 @@ const ProductDetail = ({ allProducts }) => {
               {product.description || "Beautiful hand-picked flowers perfect for any occasion."}
             </p>
 
-            {/* ---- Quantity input + Add to Cart button ---- */}
             <div className="product-actions">
-
-              {/* Quantity selector with +/- buttons */}
+              {/* Read-only quantity selector — users change value with +/- buttons only */}
               <div className="quantity-selector">
                 <button
                   className="qty-btn qty-btn-minus"
@@ -118,11 +91,7 @@ const ProductDetail = ({ allProducts }) => {
                 </button>
               </div>
 
-              {/*
-                CHANGED: onClick now calls handleAddToCart()
-                The button text also changes briefly to "Added! ✓"
-                to give the user a satisfying confirmation.
-              */}
+              {/* Button text changes based on soldOut and added states */}
               <button
                 className={`add-to-cart-btn ${added ? "added" : ""}`}
                 onClick={handleAddToCart}
