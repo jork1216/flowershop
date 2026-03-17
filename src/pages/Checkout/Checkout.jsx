@@ -6,7 +6,7 @@
 // On submit: saves order to Firestore, clears cart, redirects.
 // ============================================================
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -20,7 +20,7 @@ export default function Checkout() {
   const user = useAuth();
   const { items, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
-  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const isCheckingOutRef = useRef(false);
 
   // -----------------------------------------------------------
   // REDIRECT GUARDS
@@ -30,7 +30,7 @@ export default function Checkout() {
   // -----------------------------------------------------------
     useEffect(() => {
     // Skip if order checkout is in progress
-    if (isCheckingOut) return;
+    if (isCheckingOutRef.current) return;
     
     // Skip redirects while auth is still loading
     if (user === undefined) return;
@@ -43,7 +43,7 @@ export default function Checkout() {
     else if (items.length === 0) {
         navigate("/cart");
     }
-    }, [user, items, navigate, isCheckingOut]);
+    }, [user, items, navigate]);
 
   // -----------------------------------------------------------
   // FORM STATE
@@ -183,8 +183,8 @@ export default function Checkout() {
       // Save to Firestore — addDoc gives us back the document reference
       const docRef = await addDoc(collection(db, "orders"), order);
 
-      // Set flag to prevent redirect guard from interfering
-      setIsCheckingOut(true);
+      // Set flag to prevent redirect guard from interfering (synchronous update)
+      isCheckingOutRef.current = true;
 
       // Redirect to the thank you page, passing the order ID in the URL
       navigate(`/order-success?orderId=${docRef.id}`);
